@@ -14,7 +14,7 @@ import javax.validation.constraints.Pattern;
 @Entity
 @Table(name = "Cart")
 public class Cart {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
@@ -38,14 +38,8 @@ public class Cart {
 	private Promo promo;
 	@Column(name = "softDelete")
 	@NotNull
-	@Pattern(regexp="^[AI] {1}$")
+	@Pattern(regexp = "^[AI] {1}$")
 	private SoftDelete softDelete;
-	
-	
-	public Cart() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
 	public Customer getCustomer() {
 		return customer;

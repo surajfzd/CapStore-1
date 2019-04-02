@@ -2,10 +2,10 @@ package com.capgemini.capstore.dao;
 
 import javax.transaction.Transactional;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.capgemini.capstore.beans.Customer;
 @Transactional
-public interface CapStoreCustomer extends CrudRepository<Customer, Integer>{
+public interface CapStoreCustomer extends JpaRepository<Customer, Integer>{
 
 }

@@ -34,6 +34,9 @@ public class Order {
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	@NotNull
 	private Product product;
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	@NotNull
+	private Promo promo;
 	@Column(name = "deliveryStatus")
 	@NotNull
 	private DeliveryStatus deliveryStatus;
@@ -109,6 +112,22 @@ public class Order {
 
 	public void setFinalProductPrice(double finalProductPrice) {
 		this.finalProductPrice = finalProductPrice;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public DeliveryStatus getDeliveryStatus() {
+		return deliveryStatus;
+	}
+
+	public void setDeliveryStatus(DeliveryStatus deliveryStatus) {
+		this.deliveryStatus = deliveryStatus;
 	}
 
 }

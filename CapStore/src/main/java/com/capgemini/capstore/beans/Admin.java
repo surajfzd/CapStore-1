@@ -1,20 +1,25 @@
 package com.capgemini.capstore.beans;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "AdminDetail", uniqueConstraints = { @UniqueConstraint(columnNames = { "email", "mobileNo" }) })
-public class Admin extends User {
+public class Admin {
 
 	@Id
 	@Column(name = "adminId")
 	@NotNull
 	private int adminId;
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	@NotNull
+	private User user;
 	@Column(name = "adminName")
 	@NotNull
 	private String adminName;
@@ -24,13 +29,6 @@ public class Admin extends User {
 	@Column(name = "mobileNo")
 	@NotNull
 	private String adminMobileNumber;
-	
-	
-
-	public Admin() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
 	public int getAdminId() {
 		return adminId;

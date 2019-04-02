@@ -1,5 +1,6 @@
 package com.capgemini.capstore.beans;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,13 +15,16 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "CustomerDetail", uniqueConstraints = { @UniqueConstraint(columnNames = { "email", "mobileNo" }) })
 @SequenceGenerator(name = "custseq", initialValue = 10000, allocationSize = 1000)
-public class Customer extends User {
+public class Customer {
 
 	@Id
 	@Column(name = "customerId")
 	@NotNull
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "custseq")
 	private int customerId;
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	@NotNull
+	private User user;
 	@Column(name = "customerName")
 	@NotNull
 	private String customerName;
@@ -36,12 +40,6 @@ public class Customer extends User {
 	@Column(name = "pincode")
 	@NotNull
 	private String customerPincode;
-
-	
-	public Customer() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
 	public int getCustomerId() {
 		return customerId;

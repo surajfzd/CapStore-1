@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "ProductFeedback")
-public class ProductFeedback extends Feedback {
+public class ProductFeedback {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

@@ -18,13 +18,16 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "MerchantDetail", uniqueConstraints = { @UniqueConstraint(columnNames = { "email", "mobileNo" }) })
 @SequenceGenerator(name = "mercseq", initialValue = 2000, allocationSize = 100)
-public class Merchant extends User {
+public class Merchant {
 
 	@Id
 	@Column(name = "merchantId")
 	@NotNull
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "mercseq")
 	private int merchantId;
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	@NotNull
+	private User user;
 	@Column(name = "merchantName")
 	@NotNull
 	private String merchantName;
