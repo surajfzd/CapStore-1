@@ -33,6 +33,13 @@ public class Address {
 	private String zipcode;
 	@Column(name = "addressLine")
 	private String addressLine;
+	
+	
+
+	public Address() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public int getAddressId() {
 		return addressId;

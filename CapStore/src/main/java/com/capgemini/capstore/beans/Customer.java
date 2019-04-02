@@ -37,6 +37,12 @@ public class Customer extends User {
 	@NotNull
 	private String customerPincode;
 
+	
+	public Customer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getCustomerId() {
 		return customerId;
 	}

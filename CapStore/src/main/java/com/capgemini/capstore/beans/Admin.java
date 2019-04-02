@@ -24,6 +24,13 @@ public class Admin extends User {
 	@Column(name = "mobileNo")
 	@NotNull
 	private String adminMobileNumber;
+	
+	
+
+	public Admin() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public int getAdminId() {
 		return adminId;

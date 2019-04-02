@@ -3,6 +3,9 @@ package com.capgemini.capstore.beans;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -12,6 +15,9 @@ import javax.validation.constraints.Pattern;
 @Table(name = "Cart")
 public class Cart {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
 	@OneToOne
 	@NotNull
 	private Customer customer;
@@ -34,6 +40,12 @@ public class Cart {
 	@NotNull
 	@Pattern(regexp="^[AI] {1}$")
 	private SoftDelete softDelete;
+	
+	
+	public Cart() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public Customer getCustomer() {
 		return customer;
